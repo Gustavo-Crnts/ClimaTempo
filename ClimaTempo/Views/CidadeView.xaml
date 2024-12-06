@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClimaTempo.Views.CidadeView"
+             Title="CidadeView">
+    <VerticalStackLayout>
+       
+        <Entry
+      Placeholder="Digite aqui o nome da cidade: "
+      Text="{Binding Cidade_pesquisada}"/>
+
+
+        <CollectionView ItemsSource="{Binding Cidade_list}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout>
+                        <Label Text="{Binding Nome}"/>
+                        <Label Text="{Binding Id}"/>
+                        <Label Text="{Binding Estado}"/>
+
+                        <Button Text="Ver previsão" Command="">
+                            <ShellContent ContentTemplate="{DataTemplate views:Prec}" />
+                        </Button>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Command="{Binding BuscarCidadeCommand}"
+          Text="Pesquisar Cidade"/>
+    </VerticalStackLayout>
+</ContentPage>
+    
